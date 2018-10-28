@@ -31,7 +31,7 @@
                     document.getElementById("rainfall").innerHTML ="rain: "+ myObj.list[objects].weather[0].description  ;
             }
     }
-    xmlhttp.open("GET", "http://api.openweathermap.org/data/2.5/forecast?q="+city+","+country+"&units=metric&APPID=fb66808af5b0ec32949f238ab49f1711", true);
+    xmlhttp.open("GET", "https://api.openweathermap.org/data/2.5/forecast?q="+city+","+country+"&units=metric&APPID=fb66808af5b0ec32949f238ab49f1711", true);
     xmlhttp.send();
     }
         </script>
