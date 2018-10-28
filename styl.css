@@ -1,0 +1,50 @@
+body{
+    background-image: url(waves.png);
+    margin: 0;
+    font-family: 'Anton', sans-serif;
+}
+#text{
+    display:none;
+}
+#contener{
+width: 50%;
+margin: auto;
+text-align: center;
+height: 98vh;
+background-color: cornsilk;
+margin-top: 2vh;
+}
+#wind{
+    display:none;
+    background-color: azure;
+width: 30%;
+margin: auto;
+border:solid;
+border-width: 1px;
+margin-bottom: 1%;
+}
+#rainfall{
+display:none;
+background-color: azure;
+width: 30%;
+margin: auto;
+border:solid;
+border-width: 1px;
+}
+#temp{
+    display:none;
+background-color: azure;
+width: 30%;
+margin: auto;
+border:solid;
+border-width: 1px;
+margin-bottom: 1%;
+}
+input{
+    font-family: 'Anton', sans-serif;
+    margin-top: 1%;
+    border-width: 3px;
+    background-color: lightskyblue;
+    height: 30px;
+    text-align: center;
+}

@@ -2,49 +2,54 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="styl.css" type="text/css" />
+    <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
     <style>
-    #text{
-        display:none;
-    }
-    </style>
-        <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+        @import url('https://fonts.googleapis.com/css?family=Anton');
+                </style>
     <title>Weather</title>
-        <script>
-            function start(){
-                document.getElementById("text").style= "display:block";
-            var city ="";
-            var country ="";
-            city = document.getElementById("city").value ;
+    <script>
+        function start() {
+            document.getElementById("text").style = "display:block";
+            document.getElementById("wind").style = "display:block";
+            document.getElementById("rainfall").style = "display:block";
+            document.getElementById("temp").style = "display:block";
+            var city = "";
+            var country = "";
+            city = document.getElementById("city").value;
             country = document.getElementById("city").value;
-            console.log(city);           
+            console.log(city);
             var xmlhttp = new XMLHttpRequest()
-            xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
                     var myObj = JSON.parse(this.responseText);
                     console.log(myObj.list[0].dt);
-                    objects=myObj.list.length;                    
+                    objects = myObj.list.length;
                     if (objects >= 7) {
-                        objects=7;
+                        objects = 7;
                     }
-                    document.getElementById("temp").innerHTML = "temperature: "+myObj.list[objects].main.temp+" &#186;"+"C";
-                    document.getElementById("wind").innerHTML = "wind: "+ myObj.list[objects].wind.speed+"m/s";
-                    document.getElementById("rainfall").innerHTML ="rain: "+ myObj.list[objects].weather[0].description  ;
+                    document.getElementById("temp").innerHTML = "temperature: " + myObj.list[objects].main.temp + " &#186;" + "C";
+                    document.getElementById("wind").innerHTML = "wind: " + myObj.list[objects].wind.speed + "m/s";
+                    document.getElementById("rainfall").innerHTML = "rain: " + myObj.list[objects].weather[0].description;
+                }
             }
-    }
-    xmlhttp.open("GET", "https://api.openweathermap.org/data/2.5/forecast?q="+city+","+country+"&units=metric&APPID=fb66808af5b0ec32949f238ab49f1711", true);
-    xmlhttp.send();
-    }
-        </script>
+            xmlhttp.open("GET", "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "," + country + "&units=metric&APPID=fb66808af5b0ec32949f238ab49f1711", true);
+            xmlhttp.send();
+        }
+    </script>
 </head>
 
 <body>
-    <h2 id="text">weather tomorrow:</h2>
-    <p id="temp"></p>
-    <p id="wind"></p>
-    <p id="rainfall"></p>
-    <input id="city" type="text" placeholder="City" > 
-    <input data-tippy="Example : United States-us , France-fr" id="country" type="text" placeholder="country code"> 
-    <button onclick=start()>start</button>
+    <div id="contener">
+        </br>
+        <h2 id="text">Weather tomorrow:</h2>
+        <p id="temp"></p>
+        <p id="wind"></p>
+        <p id="rainfall"></p>
+        <input id="city" type="text" placeholder="City" >
+        <input data-tippy="Example : United States-us , France-fr" id="country" type="text" placeholder="country code">
+        <input value="start" onclick=start() type="button">
+    </div>
 </body>
 
 </html>
